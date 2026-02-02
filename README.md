@@ -1,8 +1,8 @@
-# Loan Approval Prediction System 💳📊
+# Loan Approval Prediction using ANN 🧠💳
 
-This project focuses on building and evaluating machine learning models to predict **loan approval status** based on customer personal, financial, and credit-related information.
+This project implements an **Artificial Neural Network (ANN)** to predict **loan approval status** based on customer demographic, financial, and credit information.
 
-The goal is to compare multiple models, apply feature engineering, and improve performance using ensemble learning techniques.
+The model is built to learn complex non-linear relationships within the data and improve prediction accuracy compared to traditional machine learning models.
 
 ---
 
@@ -10,88 +10,69 @@ The goal is to compare multiple models, apply feature engineering, and improve p
 
 - Problem Type: **Binary Classification**
 - Target Variable: `loan_status`
-- Objective: Predict whether a loan will be **approved or rejected**
+- Model Type: **Artificial Neural Network (ANN)**
+- Objective: Predict whether a loan will be **Approved or Rejected**
 
 ---
 
 ## 🗂 Dataset
 
-- Source: Loan dataset (CSV file)
-- Includes:
-  - Personal data (age, gender, education)
-  - Financial data (income, loan amount, interest rate)
+- Format: CSV
+- Contains:
+  - Personal information (age, gender, education)
+  - Financial details (income, loan amount, interest rate)
   - Credit history and credit score
-  - Loan intent and previous defaults
+  - Loan intent and previous default history
 
 ---
 
 ## ⚙️ Data Preprocessing
 
-- Handling missing values and duplicates
-- Exploratory Data Analysis (EDA)
-- Encoding categorical variables:
+- Data cleaning (missing values & duplicates)
+- Encoding categorical features:
   - One-Hot Encoding
-  - Ordinal Encoding for education level
+  - Ordinal encoding for education level
 - Feature scaling using **RobustScaler**
-- Feature Engineering:
+- Feature engineering:
+  - Loan to income ratio
   - Income per experience
-  - Loan-to-income ratio
   - Credit history ratios
+- Train/Test split with stratification
 
 ---
 
-## 🔍 Exploratory Data Analysis (EDA)
+## 🧠 ANN Model Architecture
 
-- Count plots for categorical features
-- Histograms and boxplots for numerical features
-- Crosstab analysis with loan status
-- Correlation heatmap
-- Mutual Information for feature importance
-
----
-
-## 🤖 Models Implemented
-
-- Logistic Regression
-- Support Vector Classifier (SVC)
-- XGBoost Classifier
-- Ensemble Models:
-  - Stacking Classifier
-  - Voting concepts
-- Oversampling Technique:
-  - SMOTE (to handle class imbalance)
+- Input Layer: Features from processed dataset
+- Hidden Layers:
+  - Fully connected (Dense) layers
+  - Activation function: **ReLU**
+- Output Layer:
+  - Sigmoid activation (Binary Classification)
+- Loss Function: **Binary Crossentropy**
+- Optimizer: **Adam**
 
 ---
 
-## 🧪 Model Evaluation
+## 🧪 Model Training & Evaluation
 
-- Train/Test Split with stratification
-- Cross-Validation using StratifiedKFold
-- Metrics:
+- Metrics used:
   - Accuracy
   - Precision
   - Recall
   - F1-score
-  - Confusion Matrix
-- Hyperparameter Tuning:
-  - GridSearchCV
-  - RandomizedSearchCV
+- Confusion Matrix for performance visualization
+- Evaluation performed on unseen test data
 
 ---
 
-## 🏆 Best Performing Model
+## 📈 Results
 
-- Tuned **XGBoost Classifier**
-- Stacking ensemble combining:
-  - Logistic Regression
-  - SVC
-  - XGBoost
+- ANN achieved strong performance in capturing complex patterns
+- Demonstrated better generalization compared to baseline models
+- Suitable for real-world loan approval prediction tasks
 
 ---
 
-## 💾 Model Saving
+## 📁 Project Structure
 
-The trained Logistic Regression model is saved using Pickle:
-
-```python
-modellogreg.pkl
